@@ -1,0 +1,415 @@
+@import "tailwindcss";
+
+html {
+  @apply h-full;
+  scroll-behavior: smooth;
+}
+
+.home-hero {
+  position: relative;
+  height: 100%;
+  min-height: 900px;
+  /* min-height: 100svh; */
+  overflow-x: hidden;
+  background:
+    url("/assets/images/stars-dim.webp")
+    center / cover no-repeat,
+    #000;
+  color: white;
+}
+
+.home-copy {
+  position: absolute;
+  z-index: 20;
+  left: clamp(2rem, 5vw, 5rem);
+  top: 35%;
+  width: min(22rem, 26vw);
+}
+
+.home-copy h1 {
+  font-size: clamp(2rem, 2.7vw, 3.25rem);
+  line-height: 1.08;
+  font-weight: 300;
+}
+
+.home-copy p {
+  margin-top: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.projects-cta {
+  position: absolute;
+  z-index: 30;
+  left: clamp(2rem, 4vw, 4rem);
+  bottom: 3rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.projects-cta-cross {
+  position: relative;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+}
+
+.projects-cta-cross::before,
+.projects-cta-cross::after {
+  content: "";
+  position: absolute;
+  background: white;
+}
+
+.projects-cta-cross::before {
+  left: 1rem;
+  top: 0;
+  width: 1px;
+  height: 100%;
+}
+
+.projects-cta-cross::after {
+  left: 0;
+  top: 3rem;
+  width: 100%;
+  height: 1px;
+}
+
+.orbit-scene {
+  position: absolute;
+  right: 0;
+  top: 12%;
+  width: 99%;
+  height: 78%;
+}
+
+
+
+
+.orbit-rings {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/*
+  Every wrapper pivots around the exact center
+  of the Make Mosaik logo.
+*/
+.orbit-ring-wrap {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 0;
+  height: 0;
+
+  transform-origin: center;
+}
+
+/*
+  The ellipse itself is offset from that pivot.
+  Rotating the wrapper causes the offset to orbit
+  around the Make Mosaik logo.
+*/
+.orbit-ring {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+/* INNER */
+
+.orbit-ring-1 {
+  width: 350px;
+  height: 350px;
+
+  left: 18px;
+  top: -10px;
+}
+
+.orbit-ring-wrap-1 {
+  animation: ring-orbit 80s linear infinite;
+}
+
+/* MIDDLE */
+
+.orbit-ring-2 {
+  width: 540px;
+  height: 540px;
+
+  left: -28px;
+  top: 18px;
+}
+
+.orbit-ring-wrap-2 {
+  animation: ring-orbit-reverse 115s linear infinite;
+}
+
+/* OUTER */
+
+.orbit-ring-3 {
+  width: 760px;
+  height: 760px;
+
+  left: 42px;
+  top: 8px;
+}
+
+.orbit-ring-wrap-3 {
+  animation: ring-orbit 155s linear infinite;
+}
+
+.mosaik-moon {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  width: clamp(9rem, 16vw, 16rem);
+  aspect-ratio: 1;
+
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+}
+
+.mosaik-moon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orbit-project {
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+
+  position: absolute;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  color: white;
+  text-decoration: none;
+
+  transform:
+    translate(
+      var(--mouse-x),
+      var(--mouse-y)
+    );
+
+  transition:
+    transform 240ms cubic-bezier(.2,.8,.2,1);
+}
+
+.orbit-project-image {
+  width: clamp(5rem, 8vw, 7.5rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+
+  border: 4px solid var(--project-accent);
+  flex-shrink: 0;
+}
+
+.orbit-project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.orbit-project-category {
+  color: var(--project-accent);
+  font-size: 1.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.orbit-project h2 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.orbit-project p {
+  margin-top: 1rem;
+  color: var(--project-accent);
+  font-size: 0.85rem;
+}
+
+.project-duck {
+  left: 24%;
+  top: 10%;
+}
+
+.project-creative {
+  left: 68%;
+  top: 48%;
+}
+
+@keyframes ring-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ring-orbit-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 767px) {
+
+  .home-hero {
+    min-height: 950px;
+    overflow: hidden;
+  }
+
+  .home-copy {
+    position: relative;
+    left: auto;
+    top: auto;
+
+    width: auto;
+    margin: 0;
+    padding:
+      8rem
+      2rem
+      0;
+  }
+
+  .home-copy h1 {
+    font-size: 1.65rem;
+  }
+
+  .home-copy p {
+    margin-top: 2.25rem;
+    font-size: 0.95rem;
+  }
+
+  .projects-cta {
+    display: none;
+    position: relative;
+    left: auto;
+    bottom: auto;
+
+    margin:
+      3rem
+      0
+      0
+      1.5rem;
+
+    font-size: 0.9rem;
+  }
+
+  .projects-cta-cross {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .projects-cta-cross::before {
+    left: 0.75rem;
+  }
+
+  .projects-cta-cross::after {
+    top: 2.25rem;
+  }
+
+  .orbit-scene {
+    position: relative;
+    right: auto;
+    top: auto;
+
+    width: 100%;
+    height: 560px;
+    margin-top: 1rem;
+  }
+
+  .orbit-ring-wrap {
+    left: 50%;
+    top: 8.5rem;
+  }
+
+  .orbit-ring-1 {
+    width: 12rem;
+    height: 12rem;
+
+    left: 12px;
+    top: -6px;
+  }
+
+  .orbit-ring-2 {
+    width: 20rem;
+    height: 20rem;
+
+    left: -18px;
+    top: 10px;
+  }
+
+  .orbit-ring-3 {
+    width: 28rem;
+    height: 28rem;
+
+    left: 28px;
+    top: 4px;
+  }
+
+  .mosaik-moon {
+    left: 50%;
+    top: 8rem;
+    width: 9rem;
+  }
+
+  .orbit-project {
+    gap: 0.85rem;
+
+    transform: none !important;
+    transition: none;
+  }
+
+  .orbit-project-image {
+    width: 5.5rem;
+  }
+
+  .project-duck {
+    left: 1.75rem;
+    top: 15rem;
+  }
+
+  .project-creative {
+    left: 1.75rem;
+    top: 25rem;
+  }
+
+  .orbit-project-category {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .orbit-project h2 {
+    font-size: 0.95rem;
+  }
+
+  .orbit-project p {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+  }
+}

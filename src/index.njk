@@ -1,0 +1,99 @@
+---
+layout: layouts/base.njk
+title: Make Mosaik
+---
+
+<section
+  class="home-hero"
+  x-data="orbitField"
+  @mousemove="move($event)"
+  @mouseleave="reset()"
+>
+  <div class="home-copy">
+    <h1>
+      MANY THINGS,<br>
+      ONE MOSAIK
+    </h1>
+
+    <p>
+      Make Mosaik is the home for the projects we create together —
+      games, music, community, animation, and whatever comes next.
+    </p>
+
+    <p class="hidden md:block">
+      Andrew is a software engineer and animator. Kristen is a musician
+      and passionate artist. Together we make mosaik.
+    </p>
+  </div>
+
+  <a
+    href="/projects/"
+    class="projects-cta"
+  >
+    <span class="projects-cta-cross"></span>
+    <span>EXPLORE OUR PROJECTS</span>
+  </a>
+
+  <div class="orbit-scene">
+
+    <div class="orbit-rings" aria-hidden="true">
+    <div class="orbit-ring-wrap orbit-ring-wrap-1">
+        <div class="orbit-ring orbit-ring-1"></div>
+    </div>
+
+    <div class="orbit-ring-wrap orbit-ring-wrap-2">
+        <div class="orbit-ring orbit-ring-2"></div>
+    </div>
+
+    <div class="orbit-ring-wrap orbit-ring-wrap-3">
+        <div class="orbit-ring orbit-ring-3"></div>
+    </div>
+    </div>
+
+    <div class="mosaik-moon">
+    <img
+        src="/assets/images/mm-logo-moon.png"
+        alt="Make Mosaik"
+    >
+    </div>
+
+
+    {% for project in projects %}
+      {% if project.featured %}
+
+        <a
+          href="{{ project.url }}"
+          class="orbit-project {{ project.className }}"
+          data-orbit-body
+          data-radius="280"
+          data-strength="0.18"
+          data-max-movement="45"
+          style="--project-accent: {{ project.accent }}"
+        >
+          <div class="orbit-project-image">
+            <img
+              src="{{ project.image }}"
+              alt="{{ project.title }}"
+            >
+          </div>
+
+          <div class="orbit-project-copy">
+            <div class="orbit-project-category">
+              {{ project.category | upper }}
+            </div>
+
+            <h2>
+              {{ project.title | upper }}
+            </h2>
+
+            <p>
+              {{ project.tagline }}
+            </p>
+          </div>
+        </a>
+
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</section>

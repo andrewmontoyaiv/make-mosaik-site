@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>
+    {% if title %}
+      {{ title }} | Make Mosaik
+    {% else %}
+      Make Mosaik
+    {% endif %}
+  </title>
+
+  <meta
+    name="description"
+    content="{{ description or 'Make Mosaik — many things, one mosaik.' }}"
+  >
+</head>
+
+<body class="bg-black text-white h-full">
+
+  {% include "components/header.njk" %}
+  
+  <main class="h-full">
+    {{ content | safe }}
+  </main>
+
+    <script
+      type="module"
+      src="/assets/js/main.js"
+    ></script>
+
+</body>
+</html>
