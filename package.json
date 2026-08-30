@@ -27,6 +27,7 @@
     "vite": "^8.2.2"
   },
   "dependencies": {
+    "@quasibit/eleventy-plugin-sitemap": "^2.2.0",
     "alpinejs": "^3.16.2"
   }
 }
