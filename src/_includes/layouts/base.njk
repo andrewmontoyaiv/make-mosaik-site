@@ -16,10 +16,7 @@
     {% endif %}
   </title>
 
-  <meta
-    name="description"
-    content="{{ description or 'Make Mosaik — many things, one mosaik.' }}"
-  >
+  {% include "components/meta.njk" %}
 </head>
 
 <body class="bg-black text-white h-full">
