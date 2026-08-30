@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+title: Page Not Found
+permalink: 404.html
+eleventyExcludeFromCollections: true
+---
+
+<main
+  class="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 text-white"
+>
+  <!-- Stars -->
+  <div
+    class="absolute inset-0 bg-cover bg-center opacity-60"
+    style="background-image: url('/assets/images/stars-dim.webp');"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Soft glow -->
+  <div
+    class="absolute left-1/2 top-1/2 h-[30rem] w-[30rem]
+           -translate-x-1/2 -translate-y-1/2
+           rounded-full bg-white/5 blur-3xl"
+    aria-hidden="true"
+  ></div>
+
+  <!-- Content -->
+  <section class="relative z-10 mx-auto max-w-xl text-center">
+
+    <p
+      class="mb-5 text-sm font-medium uppercase tracking-[0.35em] text-white/50"
+    >
+      Lost in space
+    </p>
+
+    <h1
+      class="text-8xl font-light tracking-tight sm:text-9xl"
+    >
+      404
+    </h1>
+
+    <h2
+      class="mt-6 text-2xl font-light sm:text-3xl"
+    >
+      Nothing here yet.
+    </h2>
+
+    <p
+      class="mx-auto mt-4 max-w-md text-base leading-relaxed text-white/60"
+    >
+      This page may have moved, disappeared, or never existed in the first place.
+    </p>
+
+    <a
+      href="/"
+      class="mt-10 inline-flex items-center gap-3 rounded-full
+             border border-white/30 px-7 py-3 text-sm
+             transition duration-300
+             hover:border-white hover:bg-white hover:text-black"
+    >
+      Return home
+
+      <span aria-hidden="true">→</span>
+    </a>
+
+  </section>
+</main>
